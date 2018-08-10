@@ -4,10 +4,15 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
     if (action.type === 'displayfirstline') {
-        console.log('displayfirstline called', action.value);
+        // console.log('displayfirstline called', {
+        //     oldState: state,
+        //     newArray: action.value,
+        // });
+
         return {
             csvarray: action.value
         }
+      
     }
     return state;
 };

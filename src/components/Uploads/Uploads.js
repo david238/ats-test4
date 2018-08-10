@@ -9,7 +9,7 @@ class uploads extends Component {
     constructor(props) {
         super(props);
         this.handleFiles = this.handleFiles.bind(this)
-        this.state = { csvToarray: [] };
+        this.state = { statecsvToarray: [] };
     }
 
 
@@ -20,14 +20,17 @@ class uploads extends Component {
         {
             // Use reader.result
             // console.log(reader.result)
-    
+            
             csv.parse(reader.result, (err, data) => {
                     // this.setState({
                     //     csvToarray: data
                     // });
-                    console.log('data: ', data);
-                    data = data.filter((n) => n[10] !== 'Country');  
-                    console.log('data: ', data);
+                    console.log('1 data: ', data);
+                    data = data.filter((n) => n[10] !== 'Country'); 
+                    this.setState({
+                        statecsvToarray: data
+                    }) 
+                    console.log('2 data: ', data);
                     this.props.display(data);
             });
         }
